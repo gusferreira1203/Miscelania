@@ -614,7 +614,8 @@ class Interface:
                     L.append(numero / m)
                 R = list(R)
                 if prova:
-                    plt.plot([first, last - 1], [1, 1], label="1")
+                    if hasmatplot:
+                        plt.plot([first, last - 1], [1, 1], label="1")
                     R = R[1:]
                     L2 = []
                     for i in range(1, len(L)):
@@ -657,9 +658,7 @@ class Interface:
         Para mexer os números ao redor, basta usar a casa desocupada para locomover em seu lugar todo e qualquer número que estiver ao seu redor. 
         O número escolhido é trocado de lugar com a casa, criando assim uma nova casa vazia na posição desse mesmo número. 
         Como há no máximo quatro lados de escolha de troca, logo há no máximo quatro maneiras de locomover-se (esquerda, direita, cima, baixo).
-
             Tabuleiro Embaralhado:          Tabuleiro Resolvido:
-
             —————————————————————           —————————————————————
             | 08 | 03 | 02 | 14 |           | 01 | 02 | 03 | 04 |
             —————————————————————           —————————————————————
@@ -669,13 +668,10 @@ class Interface:
             —————————————————————           —————————————————————
             | 09 | 13 | 10 | 07 |           | 13 | 14 | 15 |    |
             —————————————————————           —————————————————————
-
             Nosso programa
         Criamo-lo inicialmente com o quixotesco ímpeto por resolver a lendária questão P vs NP.
         Este programa genaraliza o Jogo do 15 para qualquer tamanho de tabuleiro quadrado, conforme requisição.
-
             Tablueiro de Tamanho 3 por 3:   Tablueiro de Tamanho 5 por 5:
-
                                              ——————————————————————————
                                              | 02 | 17 | 03 | 01 | 05 |
                    —————————————             ——————————————————————————
@@ -687,7 +683,6 @@ class Interface:
                    —————————————             ——————————————————————————
                                              | 12 | 11 | 20 | 19 | 14 |
                                              ——————————————————————————
-
         Com isso buscamos provar que a quantidade de operações necessárias cresce de forma polinomial em relação ao tamanho do tabuleiro,
         assim, provando que P é igual a NP, uma vez que este seja um problema do tipo 'NP completo'.
         
@@ -700,7 +695,6 @@ class Interface:
         Caso requisitado pelo usuário, o programa aplica a operação f(x+1)/f(x) sobre os tempos e quantidades de movimentos, sendo
         esta função uma prova do caráter polinomial do algoritmo, pois, para qualquer 'f(x)' polinomial o resultado de tal operação 
         tende a 1, e para 'f(x)' exponencial, ela tende à base da exponenciação.
-
         """
                 )
             else:
